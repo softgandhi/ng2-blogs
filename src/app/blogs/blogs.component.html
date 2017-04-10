@@ -1,0 +1,20 @@
+<h2>My Blogs</h2>
+<hr />
+<div class="blogs">
+  <div class="row blog" *ngFor="let blog of blogs;" style="margin-bottom:15px; padding:10px; background-color:#f6f6fa;">
+    <div class="col-2">
+      <img [src]="blog.image || fallbackImage" [alt]="blog.name" style="width:100%;">
+    </div>
+    <div class="col-10">
+      <div class="d-flex w-100 justify-content-between">
+        <a [routerLink]="['/blog-detail', blog.id]">
+          <h5 class="mb-1">{{ blog.name }}</h5>
+        </a>
+        <small class="text-muted">{{ blog.createDate | date}}</small>
+      </div>
+      <p class="mb-1">{{blog.description | slice:0:35}}</p>
+      <small class="text-muted">- {{blog.authorName}}</small> <br />
+      <a [routerLink]="['/edit-blog', blog.id]">edit</a> | <a tabindex="1" (click)="onDelete(blog.id);">delete</a>
+    </div>
+  </div>
+</div>

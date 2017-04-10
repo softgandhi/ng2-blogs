@@ -1,0 +1,31 @@
+<h2>Edit Blog</h2>
+<hr />
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form);" novalidate>
+    <div class="row">
+      <div class="col-2">
+        <img [src]="model.image" style="width:100%;" title="click to edit" (click)="fInput.click()" />
+        <input class="form-control" #fInput required type="file" name="name" style="display: none;" (change)="loadImage($event);">
+      </div>
+      <div class="col-10">
+        <div class="form-group">
+          <label>Blog Title:</label>
+          <input class="form-control" required type="text" name="name" [(ngModel)]="model.name">
+        </div>
+        <div class="form-group">
+          <label>Author Name:</label>
+          <input class="form-control" required type="text" name="authorName" [(ngModel)]="model.authorName">
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea class="form-control" type="text" name="description" [(ngModel)]="model.description" required minlength="20" maxlength="3000">
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a [routerLink]="['/blogs']" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>

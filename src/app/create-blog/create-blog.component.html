@@ -1,0 +1,36 @@
+<h2>Create Blog</h2>
+<hr />
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form);" novalidate>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Blog Title:</label>
+      <div class="col-10">
+        <input class="form-control" required type="text" name="name" [(ngModel)]="model.name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Description:</label>
+      <div class="col-10">
+        <textarea class="form-control" required minlength="20" maxlength="30" type="text" name="description" [(ngModel)]="model.description">          
+        </textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Author Name:</label>
+      <div class="col-10">
+        <input class="form-control" required type="text" name="authorName" [(ngModel)]="model.authorName">
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div *ngIf="model.image">
+      <img [src]="model.image" style="width:140px;" (click)="fInput.click()" />
+      <input class="form-control" #fInput required type="file" name="name" style="display: none;"
+         [(ngModel)]="model.file" (change)="loadImage($event);">
+    </div>
+  </form>
+</div>
+<hr />
+
+<a [routerLink]="['/blogs']">Back</a>
