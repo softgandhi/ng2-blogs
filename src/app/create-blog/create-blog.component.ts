@@ -32,7 +32,8 @@ export class CreateBlogComponent implements OnInit {
       alert('form is valid');
       this.blogService.post(this.model).subscribe(res => {
         console.log(res);
-      });
+      },
+        err => { alert('Cant create a blog. some error occurred.'); });
     } else {
       alert('Invalid form');
     }

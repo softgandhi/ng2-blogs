@@ -24,10 +24,11 @@
     <div class="text-center">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <div *ngIf="model.image">
-      <img [src]="model.image" style="width:140px;" (click)="fInput.click()" />
+    <div style="width:140px;">
+      <app-image-upload [default]="model.image" (upload)="model.image = $event"></app-image-upload>
+      <!--<img [src]="model.image" style="width:140px;" (click)="fInput.click()" />
       <input class="form-control" #fInput required type="file" name="name" style="display: none;"
-         [(ngModel)]="model.file" (change)="loadImage($event);">
+         [(ngModel)]="model.file" (change)="loadImage($event);">-->
     </div>
   </form>
 </div>

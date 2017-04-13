@@ -1,0 +1,2 @@
+<img [src]="image || default" style="width:100%;" title="click to edit" (click)="fInput.click()" />
+<input class="form-control" #fInput required type="file" name="name" style="display: none;" (change)="loadImage($event);">

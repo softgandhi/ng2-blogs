@@ -10,7 +10,7 @@ import { BlogService } from '../services/blog.service';
   styleUrls: ['./edit-blog.component.css']
 })
 export class EditBlogComponent implements OnInit {
-  fallbackImage = 'images/user.png';
+  fallbackImage = 'images/blog.jpg';
   model: any = {};
 
   constructor(private route: ActivatedRoute, private router: Router,
@@ -29,13 +29,10 @@ export class EditBlogComponent implements OnInit {
     });
   }
 
-  loadImage(event: any) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => {
-      this.model.image = reader.result;
-    }, false);
-    // fileReader.onload = (e) => this.model.image = fileReader.result;
-    reader.readAsDataURL(event.target.files[0]);
+  onUpload(image: string) {
+    console.log('image uploaded');
+    console.log(image);
+    this.model.image = image;
   }
 
   onSubmit(form: NgForm) {

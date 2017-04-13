@@ -14,6 +14,7 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
     BlogDetailComponent,
     CapitalizePipe,
     CreateBlogComponent,
-    EditBlogComponent
+    EditBlogComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
