@@ -3,6 +3,10 @@ logs
 *.log
 npm-debug.log*
 
+# angular cli Compiled files
+dist
+dist_*
+
 # Runtime data
 pids
 *.pid
