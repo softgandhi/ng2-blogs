@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { HttpService } from './services/http.service';
 import { BlogService } from './services/blog.service';
+import { BlogResolver } from './models/blog.resolver';
 
 import { AppComponent } from './app.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
@@ -33,7 +34,7 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     FormsModule,
     HttpModule
   ],
-  providers: [HttpService, BlogService],
+  providers: [HttpService, BlogService, BlogResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

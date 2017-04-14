@@ -5,6 +5,7 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import { BlogResolver } from './models/blog.resolver';
 
 export const routing: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -17,7 +18,10 @@ export const routing: ModuleWithProviders = RouterModule.forRoot([
     },
     {
         path: 'edit-blog/:id',
-        component: EditBlogComponent
+        component: EditBlogComponent,
+        resolve: {
+            blog: BlogResolver
+        }
     },
     {
         path: 'blog-detail/:id',

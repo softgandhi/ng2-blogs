@@ -14,19 +14,27 @@ export class EditBlogComponent implements OnInit {
   model: any = {};
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private blogService: BlogService) { }
+    private blogService: BlogService) {
+
+    this.route.data.subscribe(data => {
+      this.model = data['blog'];
+      if (!this.model.image) {
+        this.model.image = this.fallbackImage;
+      }
+    });
+  }
 
   ngOnInit() {
-    this.route.params.subscribe(param => {
-      const id = +param['id'];
-      this.blogService.get(id).subscribe(res => {
-        this.model = res;
-        if (!this.model.image) {
-          this.model.image = this.fallbackImage;
-        }
-        console.log(this.model);
-      });
-    });
+    // this.route.params.subscribe(param => {
+    //   const id = +param['id'];
+    //   this.blogService.get(id).subscribe(res => {
+    //     this.model = res;
+    //     if (!this.model.image) {
+    //       this.model.image = this.fallbackImage;
+    //     }
+    //     console.log(this.model);
+    //   });
+    // });
   }
 
   onUpload(image: string) {
